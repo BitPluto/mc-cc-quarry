@@ -1,11 +1,23 @@
 os.loadAPI("inv")
 os.loadAPI("t")
 
+local tArgs = { ... }
+if #tArgs ~= 1 then
+	print( "Usage: excavate <diameter>" )
+	return
+end
+
+-- Mine in a quarry pattern until we hit something we can't dig
+local max = tonumber( tArgs[1] )
+if max < 1 then
+	print( "Excavate diameter must be positive" )
+	return
+end
+
 local x = 0
 local y = 0
 local z = 0
-local max = 32
-local deep = 64
+local deep = 128
 local facingfw = true
 
 local OK = 0
@@ -61,7 +73,7 @@ function dropInChest()
 		
 			out("Dropping items in chest")
 			
-			for i=1, 32 do
+			for i=1, 16 do
 				turtle.select(i)
 				
 				data = turtle.getItemDetail()
@@ -103,7 +115,7 @@ function fuelNeededToGoBack()
 end
 
 function refuel()
-	for i=1, 32 do
+	for i=1, 16 do
 		-- Only run on Charcoal
 		turtle.select(i)
 		
