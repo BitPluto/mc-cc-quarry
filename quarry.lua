@@ -68,28 +68,37 @@ function dropInChest()
         local success, data = turtle.inspect()
         return success and string.find(data.name, "chest")
     end
-
-    -- Search for a chest
+	
+    local turns = 0
     for i = 1, 4 do
         if isChest() then
             out("Dropping items in chest")
-            
+
             for i = 1, 16 do
                 turtle.select(i)
                 local data = turtle.getItemDetail()
-                
+
                 if data and data.name ~= "minecraft:charcoal" and 
                    (data.name ~= "minecraft:coal" or CHARCOALONLY) and
                    (not data.damage or data.name .. data.damage ~= "minecraft:coal1") then
                     turtle.drop()
                 end
             end
+            for _ = 1, turns do
+                turtle.turnLeft()
+            end
             return
         end
+
         turtle.turnRight()
+        turns = turns + 1
     end
     out("No chest found nearby!")
+    for _ = 1, turns do
+        turtle.turnLeft()
+    end
 end
+
 
 
 function goDown()
