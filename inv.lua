@@ -13,7 +13,7 @@ function stackItems()
 	-- Remember seen items
 	m = {}
 			
-	for i=1, 32 do
+	for i=1, 16 do
 		local this = turtle.getItemDetail(i)
 		
 		if this ~= nil then
@@ -61,7 +61,7 @@ function stackItems()
 end
 
 function selectItem(name)
-	for i=1, 32 do
+	for i=1, 16 do
 		local data = turtle.getItemDetail(i)
 		if data and data.name == name then
 			turtle.select(i)
@@ -73,7 +73,7 @@ end
 
 function getItemCount(name)
 	local count = 0
-	for i=1, 32 do
+	for i=1, 16 do
 		local data = turtle.getItemDetail(i)
 		if data and data.name == name then
 			count = count + data.count
@@ -85,7 +85,7 @@ end
 function dropThrash()
 	local thrash = {"minecraft:stone", "minecraft:granite", "minecraft:andesite", "minecraft:diorite", "minecraft:cobbled_deepslate", "minecraft:tuff", "minecraft:dirt", "minecraft:coarse_dirt", "minecraft:gravel", "minecraft:sand", "minecraft:red_sand", "minecraft:cobblestone", "minecraft:sandstone", "minecraft:red_sandstone", "minecraft:bedrock", "chisel:limestone", "chisel:marble", "chisel:diorite", "chisel:granite", "chisel:andesite", "harvestcraft:salt"}
 
-	for i=1, 32 do
+	for i=1, 16 do
 	
 		details = turtle.getItemDetail(i)
 		
