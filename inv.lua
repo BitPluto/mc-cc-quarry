@@ -1,5 +1,5 @@
 function isInventoryFull()
-	for i=1, 32 do
+	for i=1, 16 do
 		if turtle.getItemCount(i) == 0 then
 			return false
 		end
