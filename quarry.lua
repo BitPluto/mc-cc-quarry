@@ -3,7 +3,7 @@ os.loadAPI("t")
 
 local tArgs = { ... }
 if #tArgs ~= 1 then
-	print( "Usage: excavate <diameter>" )
+	print( "Usage: quarry <diameter>" )
 	return
 end
 
