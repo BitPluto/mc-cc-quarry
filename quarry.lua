@@ -4,7 +4,7 @@ os.loadAPI("t")
 local x = 0
 local y = 0
 local z = 0
-local max = 16
+local max = 32
 local deep = 64
 local facingfw = true
 
@@ -61,7 +61,7 @@ function dropInChest()
 		
 			out("Dropping items in chest")
 			
-			for i=1, 16 do
+			for i=1, 32 do
 				turtle.select(i)
 				
 				data = turtle.getItemDetail()
@@ -103,7 +103,7 @@ function fuelNeededToGoBack()
 end
 
 function refuel()
-	for i=1, 16 do
+	for i=1, 32 do
 		-- Only run on Charcoal
 		turtle.select(i)
 		
